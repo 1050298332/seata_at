@@ -15,7 +15,9 @@ public class StorageController {
     @GetMapping("/decrease")
     public String decrease(Long productId ,Integer count)throws Exception{
         log.info("减少商品库存,productId="+productId+",count"+count);
+        //库存本地事务
         storageService.decrease(productId, count);
+
         return "减少库存成功";
     }
 
